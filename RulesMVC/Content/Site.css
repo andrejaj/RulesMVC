@@ -1,0 +1,68 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+#rules {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    #rules td, #customers th {
+        font-size: 1em;
+        border: 1px solid #98bf21;
+        padding: 3px 7px 2px 7px;
+    }
+
+    #rules th {
+        font-size: 1.1em;
+        text-align: left;
+        padding-top: 5px;
+        padding-bottom: 4px;
+        background-color: #A7C942;
+        color: #ffffff;
+    }
+
+    #rules tr.alt td {
+        color: #000000;
+        background-color: #EAF2D3;
+    }

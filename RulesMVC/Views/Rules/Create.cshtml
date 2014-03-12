@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<!--if used in more places push down to shared view-->
+<script type="text/javascript" src="/Scripts/jquery-1.10.2.js"></script>
+
+@using RulesMVC.Helper
+@using RulesMVC.Models
+@using RulesMVC.Util
+@model RulesMVC.ViewModels.RulesViewModel
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "Data is incorrect!")
+    ;
+    <div>
+        <fieldset>
+            <div class="editor-label">
+                @Html.LabelFor(m => m.ShortCode)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.ShortCode)
+                @Html.ValidationMessageFor(m => m.ShortCode)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Keyword)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.Keyword)
+                @Html.ValidationMessageFor(m => m.Keyword)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.SelectedSMSGatewayID)
+            </div>
+
+            <div class="editor-field">
+                @Html.DropDownListFor(m => m.SelectedSMSGatewayID, (IEnumerable<SelectListItem>) ViewBag.SmsGateways)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.SelectedPriceID)
+            </div>
+
+            <div class="editor-field">
+                @Html.LinkedDropdownListFor(m => m.SelectedPriceID, "SelectedSMSGatewayID", new LinkedSelectList((List<Price>) ViewBag.Prices, "ID", "Description", "SMSGatewayID", null))
+            </div>
+
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.SelectedApplicationID)
+            </div>
+
+            <div class="editor-field">
+                @Html.DropDownListFor(m => m.SelectedApplicationID, (IEnumerable<SelectListItem>) ViewBag.Applications)
+            </div>
+
+            <div>
+                <input type="submit" value="Save" />
+            </div>
+        </fieldset>
+    </div>
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#SelectedSMSGatewayID").change(function () {
+            $("#SelectedPriceID").val(0);
+        });
+    });
+
+</script>
+

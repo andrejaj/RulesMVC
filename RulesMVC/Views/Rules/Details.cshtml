@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+}
+
+@model IEnumerable<RulesMVC.Models.Rule>
+
+<h2>Rules Details</h2>
+
+@if (@Model != null)
+{
+    <table id="rules">
+        <thead>
+            <tr>
+                <th>ShortCode</th>
+                <th>Keyword</th>
+                <th>SMSGateway</th>
+                <th>Price</th>
+                <th>Application</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in @Model)
+            {
+                <tr>
+                    <td>@item.ShortCode</td>
+                    <td>@item.Keyword</td>
+                    <td>@item.SMSGateway.OperatorName</td>
+                    <td>@item.Price.Description</td>
+                    <td>@item.Application.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No rules found!</p>
+}
+
+

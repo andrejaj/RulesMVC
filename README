@@ -1,0 +1,5 @@
+Simple ASP MVC 5 application.
+
+Note: package folder not included as it's too large. Create new project and copy packages out.
+
+Note: DB script server name in FILENAME path needs to be changed to whatever your declared the named for DB.
